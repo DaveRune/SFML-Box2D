@@ -1,35 +1,41 @@
+#include <Project/mathclass/vectors.h>
+
 class shape {
   
+ 
+
+  vector2 direction_;
+
   public:
 
-  int aX,aY,bX,bY,cX,cY,dX,dY;
-
-  shape(int a, int b, int c, int d, int e, int f, int g, int h){
-    aX = a;   aY = b;
-    bX = c;   bY = d;
-    cX = e;   cY = f;
-    dX = g;   dY = h;
-  }
+   vector2 a,b,c,d;
 
   shape(){}
+  ~shape(){}
 
-  shape(int sX, int sY, int eX, int eY) {
-    aX = sX;
-    aY = sY + 10;
-    bX = sX;
-    bY = sY - 10;
-    cX = eX;
-    cY = eY + 10;
-    dX = eX;
-    dY = eY - 10;
+  shape(vector2 a_, vector2 b_, vector2 c_, vector2 d_){
+    a.x = a_.x;   a.y = a_.y;
+    b.x = b_.x;   b.y = b_.y;
+    c.x = c_.x;   c.y = c_.y;
+    d.x = d_.x;   d.y = d_.y;
   }
 
-  void Normalize() {
-    
-  }
+  vector2 GetDirection () { return direction_; }
 
-  void GetDirection () {
+  shape(vector2 start, vector2 end, float width) {
+    vector2 direction = direction.GetDirection(start,end);
+    direction = direction.GetPerpendicular(direction);
+    direction.Normalize();
+    direction *= width;
 
+    a.x = start.x + direction.x;
+    a.y = start.y + direction.y;
+    b.x = end.x + direction.x;
+    b.y = end.y + direction.y;
+    c.x = end.x - direction.x;
+    c.y = end.y - direction.y;
+    d.x = start.x - direction.x;
+    d.y = start.y - direction.y;
   }
 
 };

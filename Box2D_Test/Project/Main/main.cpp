@@ -91,23 +91,29 @@ int main(int argc, char** argv)
   ball->setSize(sf::Vector2f(10.0f/SCALE,10.0f/SCALE));
   ball->setOrigin(10.0f*0.5f/SCALE,10.0f*0.5f/SCALE);
   ball->setFillColor(sf::Color::Red);
-
-  // create an array of 3 vertices that define a triangle primitive
   
 
-  // // define the position of the triangle's points
-  // quad[0].position = sf::Vector2f(10, 10);
-  // quad[1].position = sf::Vector2f(100, 10);
-  // quad[2].position = sf::Vector2f(100, 100);
-  // quad[3].position = sf::Vector2f(10, 100);
-  // 
-  // // define the color of the triangle's points
-  // quad[0].color = sf::Color::Red;
-  // quad[1].color = sf::Color::Blue;
-  // quad[2].color = sf::Color::Red;
-  // quad[3].color = sf::Color::Blue;
-
   std::vector<shape> lines;
+ // std::vector<b2Body> b2lines;
+
+  float radiuss = 5;
+  sf::CircleShape circle1;
+  circle1.setRadius(radiuss);
+  circle1.setFillColor(sf::Color::Red);
+
+  sf::CircleShape circle2;
+  circle2.setRadius(radiuss);
+  circle2.setFillColor(sf::Color::Yellow);
+
+  sf::CircleShape circle3;
+  circle3.setRadius(radiuss);
+  circle3.setFillColor(sf::Color::Green);
+
+  sf::CircleShape circle4;
+  circle4.setRadius(radiuss);
+  circle4.setFillColor(sf::Color::Blue);
+
+
 
   while (window.isOpen())
   {
@@ -122,19 +128,86 @@ int main(int argc, char** argv)
           
           case sf::Event::MouseButtonPressed:
               static bool pressed = false;
-              static int sX,sY,eX,eY;
+              static vector2 start,end;
 
               if(event.mouseButton.button == sf::Mouse::Left) {
                 if(!pressed) {
-                  sX = event.mouseButton.x;
-                  sY = event.mouseButton.y;
+                  start.x = event.mouseButton.x;
+                  start.y = event.mouseButton.y;
                   pressed = true;
                 } else {
-                  eX = event.mouseButton.x;
-                  eY = event.mouseButton.y;
+                  end.x = event.mouseButton.x;
+                  end.y = event.mouseButton.y;
 
-                  lines.push_back(shape(sX,sY,eX,eY));
-                  //shape::ConstructLine(sX,sY,eX,eY);
+                 // Create the SFML visual box
+                 shape sf_shape = shape(start,end, 5);
+                 lines.push_back(sf_shape);
+        
+                 // Create the Box2D physics box.
+        
+                 vector2 center = center.GetCenter(start, end);
+        
+                // b2FixtureDef myFixture;
+                // b2BodyDef myBody;
+        
+                 //myBody.type = b2_staticBody;
+                 //myBody.position.Set(center.x, center.y);
+                 //b2Body* body = world.CreateBody(&myBody);
+                 //b2Vec2 vertices[4];
+     //
+     //            center to start + direction
+     //
+     //
+     //
+
+                 vector2 edge = edge.GetDirection(start, center);
+                 edge += sf_shape.GetDirection();
+                 //vertices[0].Set(edge.x, edge.y);
+                 edge += center;
+                 circle1.setPosition(edge.x, edge.y);
+
+                 edge = edge.GetDirection(start, center);
+                 edge -= sf_shape.GetDirection();
+                 edge += center;
+                 //vertices[1].Set(edge.x, edge.y);
+                 circle2.setPosition(edge.x, edge.y);
+
+                 edge = edge.GetDirection(end, center);
+                 edge += sf_shape.GetDirection();
+                 edge += center;
+                 //vertices[2].Set(edge.x, edge.y);
+                 circle3.setPosition(edge.x, edge.y);
+
+                 edge = edge.GetDirection(end, center);
+                 edge -= sf_shape.GetDirection();
+                 edge += center;
+                 //vertices[3].Set(edge.x, edge.y);
+                 circle4.setPosition(edge.x, edge.y);
+        
+
+
+
+
+                 //b2PolygonShape polyShape;
+                 //polyShape.Set(vertices, 4);
+                 //
+                 //myFixture.shape = &polyShape;
+                 //myFixture.density = 1;
+                 //body->CreateFixture(&myFixture);
+                 
+        
+
+
+
+
+
+
+
+                   // // define the color of the triangle's points
+                   // quad[0].color = sf::Color::Red;
+                   // quad[1].color = sf::Color::Blue;
+                   // quad[2].color = sf::Color::Red;
+                   // quad[3].color = sf::Color::Blue;
 
                   pressed = false;
                 }
@@ -152,17 +225,23 @@ int main(int argc, char** argv)
       window.clear();
       window.draw(*ground);
       window.draw(*ball);
-      //window.draw(quad);
+
 
       // draw all elements in line vector
       for(int i = 0; i != lines.size(); ++i) {
         static sf::VertexArray quad(sf::Quads, 4);
-        quad[0].position = sf::Vector2f(lines[i].aX, lines[i].aY);
-        quad[1].position = sf::Vector2f(lines[i].cX, lines[i].cY);
-        quad[2].position = sf::Vector2f(lines[i].dX, lines[i].dY);
-        quad[3].position = sf::Vector2f(lines[i].bX, lines[i].bY);
+        quad[0].position = sf::Vector2f(lines[i].a.x, lines[i].a.y);
+        quad[1].position = sf::Vector2f(lines[i].b.x, lines[i].b.y);
+        quad[2].position = sf::Vector2f(lines[i].c.x, lines[i].c.y);
+        quad[3].position = sf::Vector2f(lines[i].d.x, lines[i].d.y);
         window.draw(quad);
       }
+
+
+      window.draw(circle1);
+      window.draw(circle2);
+      window.draw(circle3);
+      window.draw(circle4);
 
       window.display();
       
