@@ -71,6 +71,10 @@ class vector2 {
     return vector2(x+v.x, y+v.y);
   }
 
+  vector2 operator-(const vector2 v) {
+    return vector2(x-v.x, y-v.y);
+  }
+
   static vector2 GetCenter(const vector2 start, const vector2 end) {
     vector2 c;
     c.x = (start.x + end.x)*0.5f;

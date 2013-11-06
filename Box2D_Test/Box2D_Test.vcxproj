@@ -80,6 +80,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Project\Main\attempt2.cpp" />
     <ClCompile Include="Project\Main\main.cpp" />
   </ItemGroup>
   <ItemGroup>

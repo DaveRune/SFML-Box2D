@@ -1,14 +1,14 @@
 #include <Project/mathclass/vectors.h>
 
 class shape {
-  
- 
-
   vector2 direction_;
+  vector2 directionPrePerp_;
+  vector2 start_;
+  vector2 end_;
 
   public:
 
-   vector2 a,b,c,d;
+  vector2 a,b,c,d;
 
   shape(){}
   ~shape(){}
@@ -24,6 +24,7 @@ class shape {
 
   shape(vector2 start, vector2 end, float width) {
     vector2 direction = direction.GetDirection(start,end);
+    directionPrePerp_ = direction;
     direction = direction.GetPerpendicular(direction);
     direction.Normalize();
     direction *= width;
@@ -36,6 +37,18 @@ class shape {
     c.y = end.y - direction.y;
     d.x = start.x - direction.x;
     d.y = start.y - direction.y;
+
+    direction_ = direction;
+    start_ = start;
+    end_ = end;
+  }
+
+  void Box2DVertPos() {
+    a += direction_ + directionPrePerp_;
+    b += direction_;
+    c -= direction_;
+    d -= direction_ - directionPrePerp_;
+
   }
 
 };

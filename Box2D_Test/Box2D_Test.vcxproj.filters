@@ -18,6 +18,9 @@
     <ClCompile Include="Project\Main\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Project\Main\attempt2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Project\Shape\Shape.h">
