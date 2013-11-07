@@ -1,0 +1,94 @@
+﻿Build started 07/11/2013 17:49:15.
+     1>Project "C:\Users\David Knight\Documents\GitHub\SFML-Box2D\Box2D_Test\Box2D_Test.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\Box2D_Test.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I".\SFML-2.1\include" /I./ /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Project\Main\main.cpp
+         main.cpp
+     1>Project\Main\main.cpp(75): error C3867: 'std::vector<_Ty>::capacity': function call missing argument list; use '&std::vector<_Ty>::capacity' to create a pointer to member
+                 with
+                 [
+                     _Ty=shape
+                 ]
+     1>Project\Main\main.cpp(75): error C2446: '!=' : no conversion from 'unsigned int (__thiscall std::vector<_Ty>::* )(void) const' to 'int'
+                 with
+                 [
+                     _Ty=shape
+                 ]
+                 There is no context in which this conversion is possible
+     1>Project\Main\main.cpp(75): error C2040: '!=' : 'int' differs in levels of indirection from 'unsigned int (__thiscall std::vector<_Ty>::* )(void) const'
+                 with
+                 [
+                     _Ty=shape
+                 ]
+     1>Project\Main\main.cpp(80): error C2065: 'center' : undeclared identifier
+     1>Project\Main\main.cpp(80): error C2228: left of '.x' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(80): error C2065: 'center' : undeclared identifier
+     1>Project\Main\main.cpp(80): error C2228: left of '.y' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(85): error C2065: 'sf_shape' : undeclared identifier
+     1>Project\Main\main.cpp(85): error C2228: left of '.Box2DVertPos' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(86): error C2065: 'sf_shape' : undeclared identifier
+     1>Project\Main\main.cpp(86): error C2228: left of '.a' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(86): error C2228: left of '.x' must have class/struct/union
+     1>Project\Main\main.cpp(86): error C2065: 'start' : undeclared identifier
+     1>Project\Main\main.cpp(86): error C2228: left of '.x' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(86): error C2065: 'sf_shape' : undeclared identifier
+     1>Project\Main\main.cpp(86): error C2228: left of '.a' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(86): error C2228: left of '.y' must have class/struct/union
+     1>Project\Main\main.cpp(86): error C2065: 'start' : undeclared identifier
+     1>Project\Main\main.cpp(86): error C2228: left of '.y' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(87): error C2065: 'sf_shape' : undeclared identifier
+     1>Project\Main\main.cpp(87): error C2228: left of '.b' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(87): error C2228: left of '.x' must have class/struct/union
+     1>Project\Main\main.cpp(87): error C2065: 'start' : undeclared identifier
+     1>Project\Main\main.cpp(87): error C2228: left of '.x' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(87): error C2065: 'sf_shape' : undeclared identifier
+     1>Project\Main\main.cpp(87): error C2228: left of '.b' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(87): error C2228: left of '.y' must have class/struct/union
+     1>Project\Main\main.cpp(87): error C2065: 'start' : undeclared identifier
+     1>Project\Main\main.cpp(87): error C2228: left of '.y' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(88): error C2065: 'sf_shape' : undeclared identifier
+     1>Project\Main\main.cpp(88): error C2228: left of '.c' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(88): error C2228: left of '.x' must have class/struct/union
+     1>Project\Main\main.cpp(88): error C2065: 'start' : undeclared identifier
+     1>Project\Main\main.cpp(88): error C2228: left of '.x' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(88): error C2065: 'sf_shape' : undeclared identifier
+     1>Project\Main\main.cpp(88): error C2228: left of '.c' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(88): error C2228: left of '.y' must have class/struct/union
+     1>Project\Main\main.cpp(88): error C2065: 'start' : undeclared identifier
+     1>Project\Main\main.cpp(88): error C2228: left of '.y' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(89): error C2065: 'sf_shape' : undeclared identifier
+     1>Project\Main\main.cpp(89): error C2228: left of '.d' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(89): error C2228: left of '.x' must have class/struct/union
+     1>Project\Main\main.cpp(89): error C2065: 'start' : undeclared identifier
+     1>Project\Main\main.cpp(89): error C2228: left of '.x' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(89): error C2065: 'sf_shape' : undeclared identifier
+     1>Project\Main\main.cpp(89): error C2228: left of '.d' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(89): error C2228: left of '.y' must have class/struct/union
+     1>Project\Main\main.cpp(89): error C2065: 'start' : undeclared identifier
+     1>Project\Main\main.cpp(89): error C2228: left of '.y' must have class/struct/union
+                 type is ''unknown-type''
+     1>Project\Main\main.cpp(333): warning C4018: '<' : signed/unsigned mismatch
+     1>Done Building Project "C:\Users\David Knight\Documents\GitHub\SFML-Box2D\Box2D_Test\Box2D_Test.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.81

@@ -1,7 +1,7 @@
 #include <math.h>
 
 class vector2 {
-  
+
   public:
   
   float x,y;
@@ -65,6 +65,12 @@ class vector2 {
   void operator-=(const vector2 v) {
     x-=v.x;
     y-=v.y;
+  }
+
+  bool operator==(const vector2 v) {
+    if(x==v.x && y==v.y)
+    return true;
+    else return false;
   }
 
   vector2 operator+(const vector2 v) {

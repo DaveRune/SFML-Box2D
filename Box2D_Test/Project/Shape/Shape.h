@@ -3,10 +3,11 @@
 class shape {
   vector2 direction_;
   vector2 directionPrePerp_;
-  vector2 start_;
-  vector2 end_;
 
   public:
+
+  vector2 start_;
+  vector2 end_;
 
   vector2 a,b,c,d;
 

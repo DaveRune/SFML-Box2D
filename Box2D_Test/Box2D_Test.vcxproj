@@ -68,7 +68,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Dave\Dropbox\Goldsmiths\Intro to Programming\Box2D\Box2D_Test\Box2D_Test\SFML-2.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\SFML-2.1\include;./</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -80,12 +80,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Project\Main\attempt2.cpp" />
     <ClCompile Include="Project\Main\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Project\levels\level1.h" />
+    <ClInclude Include="Project\levels\mainlevel.h" />
     <ClInclude Include="Project\mathclass\vectors.h" />
-    <ClInclude Include="Project\Shape\Shape.h" />
+    <ClInclude Include="Project\Shape\shape.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

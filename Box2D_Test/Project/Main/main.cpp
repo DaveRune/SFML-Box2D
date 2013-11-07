@@ -1,13 +1,10 @@
-#include <Box2D/Box2D.h>
+#include <Project/Shape/Shape.h>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
-#include <Project/Shape/Shape.h>
 #include <cstdio>
 
-#define SCALE 0.5f
-#define DEGTORAD 0.0174532925f
-#define RADTODEG 57.2957795f
+#include <Project\levels\level1.h>
 
 bool paused = true;
 vector2 cubeStart(100,100);
@@ -15,7 +12,8 @@ vector2 cubeStart(100,100);
 b2Vec2 gravity(0.0f, 5.0f);
 b2World* world = new b2World(gravity);
 b2BodyDef bodyDef;
-b2Body* body = world->CreateBody(&bodyDef);
+b2Body* body;
+b2Body* circleBody;
 b2PolygonShape dynamicBox;
 b2FixtureDef fixtureDef;
 
@@ -24,27 +22,119 @@ void CreateWorld() {
 	b2Vec2 gravity(0.0f, 5.0f);
 
 	// Construct a world object, which will hold and simulate the rigid bodies.
-	b2World* world = new b2World(gravity);
+	world = new b2World(gravity);
 
 	// Define the dynamic body. We set its position and call the body factory.
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
-	bodyDef.position.Set(cubeStart.x * SCALE ,cubeStart.y * SCALE);
+	bodyDef.position.Set(cubeStart.x * SCALE + 25 ,cubeStart.y * SCALE + 50);
 	b2Body* body = world->CreateBody(&bodyDef);
   bodyDef.awake = false;
 	// Define another box shape for our dynamic body.
 	b2PolygonShape dynamicBox;
-	dynamicBox.SetAsBox(10.0f*0.5f, 10.0f*0.5f);
+	dynamicBox.SetAsBox(100.0f*0.5f, 10.0f*0.5f);
 	// Define the dynamic body fixture.
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &dynamicBox;
-  fixtureDef.restitution = 1.0f;
+  fixtureDef.restitution = 0.01f;
 	// Set the box density to be non-zero, so it will be dynamic.
-	fixtureDef.density = 1.0f;
+	fixtureDef.density = 3.0f;
 	// Override the default friction.
-	fixtureDef.friction = 0.3f;
+	fixtureDef.friction = 0.01f;
 	// Add the shape to the body.
 	body->CreateFixture(&fixtureDef);
+
+  b2BodyDef bodyDefcircle;
+	bodyDefcircle.type = b2_dynamicBody;
+	bodyDefcircle.position.Set(25,100);
+	b2Body* circleBody = world->CreateBody(&bodyDefcircle);
+
+  b2FixtureDef circlefixtureDef;
+  b2CircleShape dynamicCircle;
+  dynamicCircle.m_radius = 20;
+  dynamicCircle.m_p.Set(0,0);
+	circlefixtureDef.shape = &dynamicCircle;
+  circlefixtureDef.restitution = 0.1f;
+	// Set the box density to be non-zero, so it will be dynamic.
+	circlefixtureDef.density = 1.0f;
+	// Override the default friction.
+	circlefixtureDef.friction = 0.8f;
+	// Add the shape to the body.
+	circleBody->CreateFixture(&circlefixtureDef);
+
+  b2RevoluteJointDef joint;
+  joint.Initialize(body,circleBody, b2Vec2(25,100));
+  joint.enableMotor = true;
+  joint.motorSpeed = 200;
+  joint.maxMotorTorque = 100000;
+  world->CreateJoint(&joint);
+
+  b2BodyDef bodyDefcircle2;
+	bodyDefcircle2.type = b2_dynamicBody;
+	bodyDefcircle2.position.Set(125,100);
+	b2Body* circleBody2 = world->CreateBody(&bodyDefcircle2);
+
+  b2FixtureDef circlefixtureDef2;
+  b2CircleShape dynamicCircle2;
+  dynamicCircle2.m_radius = 20;
+  dynamicCircle2.m_p.Set(0,0);
+	circlefixtureDef2.shape = &dynamicCircle;
+  circlefixtureDef2.restitution = 0.1f;
+	// Set the box density to be non-zero, so it will be dynamic.
+	circlefixtureDef2.density = 1.0f;
+	// Override the default friction.
+	circlefixtureDef2.friction = 0.8f;
+	// Add the shape to the body.
+	circleBody2->CreateFixture(&circlefixtureDef2);
+
+  joint.Initialize(body,circleBody2, b2Vec2(125,100));
+  joint.enableMotor = true;
+  joint.motorSpeed = 200;
+  joint.maxMotorTorque = 100000;
+  world->CreateJoint(&joint);
+
+}
+
+void RecreateLines (std::vector<shape> lines) {
+  for(int i = 0; i != lines.capacity(); ++i) {
+    // Create the Box2D physics box.
+    static b2FixtureDef myFixture;
+    static b2BodyDef myBody;
+    myBody.type = b2_staticBody;
+    vector2 center = center.GetCenter(lines[i].start_, lines[i].end_);
+    myBody.position.Set(center.x, center.y);
+    b2Body* body = world->CreateBody(&myBody);
+    b2Vec2 vertices[4];
+
+    // Caluclate the positions of the Box2D Verts
+    lines[i].Box2DVertPos();
+    vertices[0].Set(lines[i].a.x * SCALE -lines[i].start_.x*0.5f, lines[i].a.y * SCALE -lines[i].start_.y*0.5f);
+    vertices[3].Set(lines[i].b.x * SCALE -lines[i].start_.x*0.5f, lines[i].b.y * SCALE -lines[i].start_.y*0.5f);
+    vertices[2].Set(lines[i].c.x * SCALE -lines[i].start_.x*0.5f, lines[i].c.y * SCALE -lines[i].start_.y*0.5f);
+    vertices[1].Set(lines[i].d.x * SCALE -lines[i].start_.x*0.5f, lines[i].d.y * SCALE -lines[i].start_.y*0.5f);
+
+    b2PolygonShape polyShape;
+    polyShape.Set(vertices, 4);
+                 
+    myFixture.shape = &polyShape;
+    myFixture.density = 1;
+    body->CreateFixture(&myFixture);
+  }
+}
+
+void LevelLoad(int levelNum) {
+  switch (levelNum)
+  {
+    case 1:
+      CreateWorld();
+      break;
+
+    case 2:
+      level1 l1;
+      l1.CreateLevel();
+      break;
+ 
+  }
 }
 
 int main(int argc, char** argv)
@@ -53,6 +143,8 @@ int main(int argc, char** argv)
 
   delete world;
   CreateWorld();
+
+  int currentLevel = 0;
 
   #pragma region Background Graphics
   // Load the background images, create a sprite and assign the image.
@@ -72,8 +164,8 @@ int main(int argc, char** argv)
   sunTexture.setSmooth(true);
   sunTexture.setRepeated(true);
   sf::Sprite sun;
-  sun.setPosition(window.getSize().x - 250 - window.getSize().x*0.2f,100);
-  sun.setScale(1.0f,1.0f);
+  sun.setPosition((window.getSize().x - (250*0.6f)) - window.getSize().x * 0.1f , 100);
+  sun.setScale(0.6f,0.6f);
   sun.setTexture(sunTexture);
 
   // Cloud
@@ -92,15 +184,15 @@ int main(int argc, char** argv)
   hillsTexture.setSmooth(false);
   hillsTexture.setRepeated(true);
   sf::Sprite hills1;
-  hills1.setPosition(0,window.getSize().y - 184);
+  hills1.setPosition(0,(float)window.getSize().y - 184);
   hills1.setScale(1.0f ,1.0f);
   hills1.setTexture(hillsTexture);
   sf::Sprite hills2;
-  hills2.setPosition(766,window.getSize().y - 184);
+  hills2.setPosition(766,(float)window.getSize().y - 184);
   hills2.setScale(1.0f,1.0f);
   hills2.setTexture(hillsTexture);
   sf::Sprite hills3;
-  hills3.setPosition(766*2,window.getSize().y - 184);
+  hills3.setPosition(766*2,(float)window.getSize().y - 184);
   hills3.setScale(1.0f,1.0f);
   hills3.setTexture(hillsTexture);
   #pragma endregion
@@ -108,15 +200,25 @@ int main(int argc, char** argv)
 	// Prepare for simulation. Typically we use a time step of 1/60 of a
 	// second (60Hz) and 10 iterations. This provides a high quality simulation
 	// in most game scenarios.
-	float32 timeStep = 1.0f / 60.0f;
-	int32 velocityIterations = 6;
-	int32 positionIterations = 2;
+	float32 timeStep = 1.0f / 30.0f;
+	int32 velocityIterations = 8;
+	int32 positionIterations = 3;
 
   std::vector<shape> lines;
-  std::vector<b2Body> *b2lines;
+
+  sf::Texture wheel;
+  wheel.loadFromFile("assets/Wheel.png");
+  wheel.setSmooth(true);
 
   #pragma region events
-  while (window.isOpen()){
+  while (window.isOpen()) {
+
+    static sf::Clock deltaClock;
+    sf::Time deltaTime = deltaClock.restart();
+
+    static float time;
+    time += deltaTime.asSeconds() * 5;
+
     sf::Event event;
     while (window.pollEvent(event))
     {
@@ -133,10 +235,10 @@ int main(int argc, char** argv)
 
           // Rescale and Reposition the background elements
           background.setScale((float)window.getSize().x,1.0f);
-          sun.setPosition(window.getSize().x - 250 - window.getSize().x*0.2f,100);
-          hills1.setPosition(0,window.getSize().y - 184);
-          hills2.setPosition(766,window.getSize().y - 184);
-          hills3.setPosition(766*2,window.getSize().y - 184);
+          sun.setPosition((window.getSize().x - (250*0.6f)) - window.getSize().x * 0.1f , 100);
+          hills1.setPosition(0,(float)window.getSize().y - 184);
+          hills2.setPosition(766,(float)window.getSize().y - 184);
+          hills3.setPosition(766*2,(float)window.getSize().y - 184);
           break;
 
       case sf::Event::MouseButtonPressed:
@@ -147,12 +249,17 @@ int main(int argc, char** argv)
           if(event.mouseButton.button == sf::Mouse::Left) {
             // If we are drawing lines constantly, dont perform click drawing
             if(!pressed) {
-              start.x = event.mouseButton.x;
-              start.y = event.mouseButton.y;
+              start.x = (float)event.mouseButton.x;
+              start.y = (float)event.mouseButton.y;
               pressed = true;
             } else {
-              end.x = event.mouseButton.x;
-              end.y = event.mouseButton.y;
+              end.x = (float)event.mouseButton.x;
+              end.y = (float)event.mouseButton.y;
+
+              if(start == end) {
+                pressed = false;
+                break;
+              }
 
               // Create the SFML visual box based on click locations
               shape sf_shape = shape(start,end, 2);
@@ -189,26 +296,44 @@ int main(int argc, char** argv)
     }
     #pragma endregion
 
-    #pragma region Reset 
+    #pragma region Keyboard_Input__Reset
+    // RESET ALL
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
       // Clear all SFML Lines
       lines.clear();
-
-      // Reset the Box
-      for(b2Body* b = world->GetBodyList(); b; b = b->GetNext()) {
-        if(b->GetType() == b2_dynamicBody) {
-          b->SetTransform(b2Vec2(cubeStart.x * SCALE ,cubeStart.y * SCALE), 0 );
-          b->SetLinearVelocity(b2Vec2(0.1f,0));
-          b->SetAngularVelocity(0);
-        }
-      }
-      
       // Pause the game
       paused = true;
-
       // Reset the World
       delete world;
-      CreateWorld();
+      LevelLoad(currentLevel);
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+      // Reset the Level
+      delete world;
+      LevelLoad(currentLevel);
+
+      // Recreate the physics on all the lines
+      RecreateLines(lines);
+      int x = 9;
+      // Pause the game
+      paused = true;
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+      // Clear all SFML Lines
+      lines.clear();
+      // Pause the game
+      paused = true;
+      // Reset the World
+      delete world;
+      LevelLoad(1);
+    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+      // Clear all SFML Lines
+      lines.clear();
+      // Pause the game
+      paused = true;
+      // Reset the World
+      delete world;
+      LevelLoad(2);
     }
     #pragma endregion 
 
@@ -224,7 +349,10 @@ int main(int argc, char** argv)
     }
     #pragma endregion
 
-    if(!paused) world->Step(timeStep, velocityIterations, positionIterations);
+    if(time > 0.016f) {
+      if(!paused) world->Step(time, velocityIterations, positionIterations);
+      time = 0;
+    }
 
     window.clear();
 
@@ -247,6 +375,9 @@ int main(int argc, char** argv)
       for(b2Fixture* f = b->GetFixtureList(); f; f = f->GetNext()) {
         //This checks to see if the type of the fixture is a polygon, if it is then draw the polygon
         if(f->GetType() == b2Shape::e_polygon) {
+          // Create the convex shape
+          static sf::ConvexShape cShape;
+          cShape.setFillColor(sf::Color::Red);
           //Stores a pointer to the shape stored in the fixture
           b2PolygonShape* s = (b2PolygonShape*)f->GetShape();
           //Get the amount of vertices stored in the shape
@@ -262,6 +393,29 @@ int main(int argc, char** argv)
           }
           //Draws the shape onto the window
           window.draw(cShape);
+        }
+        else if (f->GetType() == b2CircleShape::e_circle) {
+          //  // Create A cricle to be drawn
+          //  static sf::CircleShape circle;
+          //  circle.setFillColor(sf::Color::Green);
+          //  //Stores a pointer to the shape stored in the fixture
+          //  b2PolygonShape* s = (b2PolygonShape*)f->GetShape();
+          //  // Calculate the radius for the SFML circle
+          //  circle.setRadius(s->m_radius);
+          //  circle.setPosition(f->GetBody()->GetPosition().x - circle.getRadius(), f->GetBody()->GetPosition().y - circle.getRadius());
+          //  window.draw(circle);
+
+          b2PolygonShape* s = (b2PolygonShape*)f->GetShape();
+          static sf::Sprite sWheel;
+          sWheel.setScale((s->m_radius*0.01)*2,(s->m_radius*0.01)*2);
+          sWheel.setPosition (f->GetBody()->GetPosition().x - s->m_radius, f->GetBody()->GetPosition().y - s->m_radius);
+          sWheel.setPosition (f->GetBody()->GetPosition().x, f->GetBody()->GetPosition().y);
+          sWheel.setTexture(wheel);
+          //printf("%f\n", b->GetAngle());
+          sWheel.setOrigin(50,50);
+          sWheel.setRotation(b->GetAngle() * 57.2957795f);
+          window.draw(sWheel);
+
         }
       }
     }
@@ -330,9 +484,9 @@ int main(int argc, char** argv)
       window.draw(pause2);
     }
     #pragma endregion
-
-
   window.display();
   }
+
+  
 	return 0;
 }
