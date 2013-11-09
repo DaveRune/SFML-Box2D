@@ -1,94 +1,113 @@
-﻿Build started 07/11/2013 17:49:15.
+﻿Build started 09/11/2013 00:31:57.
      1>Project "C:\Users\David Knight\Documents\GitHub\SFML-Box2D\Box2D_Test\Box2D_Test.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Release\Box2D_Test.unsuccessfulbuild".
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I".\SFML-2.1\include" /I./ /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Project\Main\main.cpp
          main.cpp
-     1>Project\Main\main.cpp(75): error C3867: 'std::vector<_Ty>::capacity': function call missing argument list; use '&std::vector<_Ty>::capacity' to create a pointer to member
-                 with
-                 [
-                     _Ty=shape
-                 ]
-     1>Project\Main\main.cpp(75): error C2446: '!=' : no conversion from 'unsigned int (__thiscall std::vector<_Ty>::* )(void) const' to 'int'
-                 with
-                 [
-                     _Ty=shape
-                 ]
-                 There is no context in which this conversion is possible
-     1>Project\Main\main.cpp(75): error C2040: '!=' : 'int' differs in levels of indirection from 'unsigned int (__thiscall std::vector<_Ty>::* )(void) const'
-                 with
-                 [
-                     _Ty=shape
-                 ]
-     1>Project\Main\main.cpp(80): error C2065: 'center' : undeclared identifier
-     1>Project\Main\main.cpp(80): error C2228: left of '.x' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(80): error C2065: 'center' : undeclared identifier
-     1>Project\Main\main.cpp(80): error C2228: left of '.y' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(85): error C2065: 'sf_shape' : undeclared identifier
-     1>Project\Main\main.cpp(85): error C2228: left of '.Box2DVertPos' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(86): error C2065: 'sf_shape' : undeclared identifier
-     1>Project\Main\main.cpp(86): error C2228: left of '.a' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(86): error C2228: left of '.x' must have class/struct/union
-     1>Project\Main\main.cpp(86): error C2065: 'start' : undeclared identifier
-     1>Project\Main\main.cpp(86): error C2228: left of '.x' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(86): error C2065: 'sf_shape' : undeclared identifier
-     1>Project\Main\main.cpp(86): error C2228: left of '.a' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(86): error C2228: left of '.y' must have class/struct/union
-     1>Project\Main\main.cpp(86): error C2065: 'start' : undeclared identifier
-     1>Project\Main\main.cpp(86): error C2228: left of '.y' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(87): error C2065: 'sf_shape' : undeclared identifier
-     1>Project\Main\main.cpp(87): error C2228: left of '.b' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(87): error C2228: left of '.x' must have class/struct/union
-     1>Project\Main\main.cpp(87): error C2065: 'start' : undeclared identifier
-     1>Project\Main\main.cpp(87): error C2228: left of '.x' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(87): error C2065: 'sf_shape' : undeclared identifier
-     1>Project\Main\main.cpp(87): error C2228: left of '.b' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(87): error C2228: left of '.y' must have class/struct/union
-     1>Project\Main\main.cpp(87): error C2065: 'start' : undeclared identifier
-     1>Project\Main\main.cpp(87): error C2228: left of '.y' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(88): error C2065: 'sf_shape' : undeclared identifier
-     1>Project\Main\main.cpp(88): error C2228: left of '.c' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(88): error C2228: left of '.x' must have class/struct/union
-     1>Project\Main\main.cpp(88): error C2065: 'start' : undeclared identifier
-     1>Project\Main\main.cpp(88): error C2228: left of '.x' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(88): error C2065: 'sf_shape' : undeclared identifier
-     1>Project\Main\main.cpp(88): error C2228: left of '.c' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(88): error C2228: left of '.y' must have class/struct/union
-     1>Project\Main\main.cpp(88): error C2065: 'start' : undeclared identifier
-     1>Project\Main\main.cpp(88): error C2228: left of '.y' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(89): error C2065: 'sf_shape' : undeclared identifier
-     1>Project\Main\main.cpp(89): error C2228: left of '.d' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(89): error C2228: left of '.x' must have class/struct/union
-     1>Project\Main\main.cpp(89): error C2065: 'start' : undeclared identifier
-     1>Project\Main\main.cpp(89): error C2228: left of '.x' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(89): error C2065: 'sf_shape' : undeclared identifier
-     1>Project\Main\main.cpp(89): error C2228: left of '.d' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(89): error C2228: left of '.y' must have class/struct/union
-     1>Project\Main\main.cpp(89): error C2065: 'start' : undeclared identifier
-     1>Project\Main\main.cpp(89): error C2228: left of '.y' must have class/struct/union
-                 type is ''unknown-type''
-     1>Project\Main\main.cpp(333): warning C4018: '<' : signed/unsigned mismatch
+     1>Project\Main\main.cpp(141): warning C4007: 'WinMain' : must be '__stdcall'
+     1>Project\Main\main.cpp(404): warning C4018: '<' : signed/unsigned mismatch
+     1>Project\Main\main.cpp(435): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Project\Main\main.cpp(435): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David Knight\Documents\GitHub\SFML-Box2D\Release\Box2D_Test.exe" /INCREMENTAL /NOLOGO /LIBPATH:./lib /LIBPATH:".\SFML-2.1\lib" Box2D.lib "sfml-window-s.lib" "sfml-system-s.lib" "sfml-graphics-s.lib" "sfml-main.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\Box2D_Test.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\David Knight\Documents\GitHub\SFML-Box2D\Release\Box2D_Test.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\David Knight\Documents\GitHub\SFML-Box2D\Release\Box2D_Test.lib" /MACHINE:X86 Release\Box2D_Test.exe.embed.manifest.res
+         Release\main.obj
+     1>LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+     1>Box2D.lib(b2RevoluteJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2World.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Body.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2CircleShape.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2PolygonShape.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Joint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Settings.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Math.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2StackAllocator.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2BlockAllocator.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2ContactManager.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2BroadPhase.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Fixture.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Island.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Timer.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Contact.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2TimeOfImpact.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Distance.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2PulleyJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Draw.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2DynamicTree.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2RopeJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2FrictionJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2WeldJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2WheelJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2GearJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2PrismaticJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2MouseJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2DistanceJoint.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2WorldCallbacks.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2ContactSolver.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2ChainAndPolygonContact.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2ChainAndCircleContact.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2EdgeAndPolygonContact.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2EdgeAndCircleContact.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2PolygonContact.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2PolygonAndCircleContact.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2CircleContact.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2Collision.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2CollideEdge.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2ChainShape.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2EdgeShape.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2CollidePolygon.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>Box2D.lib(b2CollideCircle.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in main.obj
+     1>LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Shape::setFillColor(class sf::Color const &)" (__imp_?setFillColor@Shape@sf@@QAEXABVColor@2@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual class sf::Vector2<unsigned int> __thiscall sf::RenderWindow::getSize(void)const " (__imp_?getSize@RenderWindow@sf@@UBE?AV?$Vector2@I@2@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::RenderWindow::~RenderWindow(void)" (__imp_??1RenderWindow@sf@@UAE@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (__imp_??0RenderWindow@sf@@QAE@VVideoMode@1@ABVString@1@IABUContextSettings@1@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::View::View(class sf::Rect<float> const &)" (__imp_??0View@sf@@QAE@ABV?$Rect@M@1@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::Color const sf::Color::Green" (__imp_?Green@Color@sf@@2V12@B)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Transformable::setOrigin(float,float)" (__imp_?setOrigin@Transformable@sf@@QAEXMM@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Transformable::setScale(float,float)" (__imp_?setScale@Transformable@sf@@QAEXMM@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Transformable::setRotation(float)" (__imp_?setRotation@Transformable@sf@@QAEXM@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Transformable::setPosition(float,float)" (__imp_?setPosition@Transformable@sf@@QAEXMM@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::display(void)" (__imp_?display@Window@sf@@QAEXXZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Window::pollEvent(class sf::Event &)" (__imp_?pollEvent@Window@sf@@QAE_NAAVEvent@2@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Window::isOpen(void)const " (__imp_?isOpen@Window@sf@@QBE_NXZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::close(void)" (__imp_?close@Window@sf@@QAEXXZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::RenderStates const sf::RenderStates::Default" (__imp_?Default@RenderStates@sf@@2V12@B)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Texture::setRepeated(bool)" (__imp_?setRepeated@Texture@sf@@QAEX_N@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Texture::setSmooth(bool)" (__imp_?setSmooth@Texture@sf@@QAEX_N@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Texture::loadFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class sf::Rect<int> const &)" (__imp_?loadFromFile@Texture@sf@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABV?$Rect@H@2@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Texture::~Texture(void)" (__imp_??1Texture@sf@@QAE@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Texture::Texture(void)" (__imp_??0Texture@sf@@QAE@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QAE@PBDABVlocale@std@@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static bool __cdecl sf::Keyboard::isKeyPressed(enum sf::Keyboard::Key)" (__imp_?isKeyPressed@Keyboard@sf@@SA_NW4Key@12@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: float __thiscall sf::Time::asSeconds(void)const " (__imp_?asSeconds@Time@sf@@QBEMXZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Time __thiscall sf::Clock::restart(void)" (__imp_?restart@Clock@sf@@QAE?AVTime@2@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Clock::Clock(void)" (__imp_??0Clock@sf@@QAE@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Sprite::setTexture(class sf::Texture const &,bool)" (__imp_?setTexture@Sprite@sf@@QAEXABVTexture@2@_N@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Sprite::Sprite(void)" (__imp_??0Sprite@sf@@QAE@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::Color const sf::Color::Blue" (__imp_?Blue@Color@sf@@2V12@B)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QAE@III@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::Color const sf::Color::Red" (__imp_?Red@Color@sf@@2V12@B)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Vertex & __thiscall sf::VertexArray::operator[](unsigned int)" (__imp_??AVertexArray@sf@@QAEAAVVertex@1@I@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: unsigned int __thiscall sf::VertexArray::getVertexCount(void)const " (__imp_?getVertexCount@VertexArray@sf@@QBEIXZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::VertexArray::VertexArray(enum sf::PrimitiveType,unsigned int)" (__imp_??0VertexArray@sf@@QAE@W4PrimitiveType@1@I@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::RenderTarget::draw(class sf::Drawable const &,class sf::RenderStates const &)" (__imp_?draw@RenderTarget@sf@@QAEXABVDrawable@2@ABVRenderStates@2@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::RenderTarget::setView(class sf::View const &)" (__imp_?setView@RenderTarget@sf@@QAEXABVView@2@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::RenderTarget::clear(class sf::Color const &)" (__imp_?clear@RenderTarget@sf@@QAEXABVColor@2@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::ConvexShape::setPoint(unsigned int,class sf::Vector2<float> const &)" (__imp_?setPoint@ConvexShape@sf@@QAEXIABV?$Vector2@M@2@@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::ConvexShape::setPointCount(unsigned int)" (__imp_?setPointCount@ConvexShape@sf@@QAEXI@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::ConvexShape::ConvexShape(unsigned int)" (__imp_??0ConvexShape@sf@@QAE@I@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Color::Color(unsigned char,unsigned char,unsigned char,unsigned char)" (__imp_??0Color@sf@@QAE@EEEE@Z)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::VertexArray::~VertexArray(void)" (__imp_??1VertexArray@sf@@UAE@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::ConvexShape::~ConvexShape(void)" (__imp_??1ConvexShape@sf@@UAE@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::Sprite::~Sprite(void)" (__imp_??1Sprite@sf@@UAE@XZ)
+     1>main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::~String(void)" (__imp_??1String@sf@@QAE@XZ)
+     1>MSVCRT.lib(crtexe.obj) : error LNK2001: unresolved external symbol _main
+     1>C:\Users\David Knight\Documents\GitHub\SFML-Box2D\Release\Box2D_Test.exe : fatal error LNK1120: 45 unresolved externals
      1>Done Building Project "C:\Users\David Knight\Documents\GitHub\SFML-Box2D\Box2D_Test\Box2D_Test.vcxproj" (build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.81
+Time Elapsed 00:00:01.51

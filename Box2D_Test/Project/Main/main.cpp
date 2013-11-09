@@ -1,10 +1,11 @@
 #include <Project/Shape/Shape.h>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include <SFML/Window.hpp>
+//#include <SFML/Window.hpp>
 #include <cstdio>
 
 #include <Project\levels\level1.h>
+level1 l1;
 
 bool paused = true;
 vector2 cubeStart(100,100);
@@ -130,8 +131,7 @@ void LevelLoad(int levelNum) {
       break;
 
     case 2:
-      level1 l1;
-      l1.CreateLevel();
+       l1.CreateLevel();
       break;
  
   }
@@ -144,7 +144,7 @@ int main(int argc, char** argv)
   delete world;
   CreateWorld();
 
-  int currentLevel = 0;
+  int currentLevel = 1;
 
   #pragma region Background Graphics
   // Load the background images, create a sprite and assign the image.
@@ -210,6 +210,14 @@ int main(int argc, char** argv)
   wheel.loadFromFile("assets/Wheel.png");
   wheel.setSmooth(true);
 
+  sf::Texture bikeWheel;
+  bikeWheel.loadFromFile("assets/BikeWheel.png");
+  bikeWheel.setSmooth(true);
+
+  sf::Texture bikeFrame_t;
+  bikeFrame_t.loadFromFile("assets/BikeFrame.png");
+  bikeFrame_t.setSmooth(true);
+
   #pragma region events
   while (window.isOpen()) {
 
@@ -247,6 +255,9 @@ int main(int argc, char** argv)
 
           // When we click save the positions to a Vector2
           if(event.mouseButton.button == sf::Mouse::Left) {
+
+          //printf("%f  -  %f\n", (float)event.mouseButton.x, (float)event.mouseButton.y);
+
             // If we are drawing lines constantly, dont perform click drawing
             if(!pressed) {
               start.x = (float)event.mouseButton.x;
@@ -287,6 +298,7 @@ int main(int argc, char** argv)
                  
               myFixture.shape = &polyShape;
               myFixture.density = 1;
+              myFixture.friction = 1;
               body->CreateFixture(&myFixture);
 
               pressed = false;
@@ -295,6 +307,8 @@ int main(int argc, char** argv)
         }
     }
     #pragma endregion
+
+    if(currentLevel == 2) l1.Update();
 
     #pragma region Keyboard_Input__Reset
     // RESET ALL
@@ -326,6 +340,7 @@ int main(int argc, char** argv)
       // Reset the World
       delete world;
       LevelLoad(1);
+      currentLevel = 1;
     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
       // Clear all SFML Lines
       lines.clear();
@@ -334,6 +349,7 @@ int main(int argc, char** argv)
       // Reset the World
       delete world;
       LevelLoad(2);
+      currentLevel = 2;
     }
     #pragma endregion 
 
@@ -374,7 +390,7 @@ int main(int argc, char** argv)
       //This loops through every fixture in the current body
       for(b2Fixture* f = b->GetFixtureList(); f; f = f->GetNext()) {
         //This checks to see if the type of the fixture is a polygon, if it is then draw the polygon
-        if(f->GetType() == b2Shape::e_polygon) {
+        if(f->GetType() == b2Shape::e_polygon && currentLevel != 2) {
           // Create the convex shape
           static sf::ConvexShape cShape;
           cShape.setFillColor(sf::Color::Red);
@@ -394,6 +410,15 @@ int main(int argc, char** argv)
           //Draws the shape onto the window
           window.draw(cShape);
         }
+        else if ((f->GetType() == b2Shape::e_polygon && b->GetType() == b2_dynamicBody)) {
+          static sf::Sprite bikeFrame;
+          bikeFrame.setTexture(bikeFrame_t);
+          bikeFrame.setPosition(f->GetBody()->GetPosition().x, f->GetBody()->GetPosition().y);
+          bikeFrame.setScale(0.5f,0.5f);
+          bikeFrame.setRotation(b->GetAngle() * 57.2957795f);
+          bikeFrame.setOrigin(0,0);
+          window.draw(bikeFrame);
+        }
         else if (f->GetType() == b2CircleShape::e_circle) {
           //  // Create A cricle to be drawn
           //  static sf::CircleShape circle;
@@ -408,10 +433,10 @@ int main(int argc, char** argv)
           b2PolygonShape* s = (b2PolygonShape*)f->GetShape();
           static sf::Sprite sWheel;
           sWheel.setScale((s->m_radius*0.01)*2,(s->m_radius*0.01)*2);
-          sWheel.setPosition (f->GetBody()->GetPosition().x - s->m_radius, f->GetBody()->GetPosition().y - s->m_radius);
           sWheel.setPosition (f->GetBody()->GetPosition().x, f->GetBody()->GetPosition().y);
-          sWheel.setTexture(wheel);
-          //printf("%f\n", b->GetAngle());
+          
+          if(currentLevel == 1) sWheel.setTexture(wheel);
+          if(currentLevel == 2) sWheel.setTexture(bikeWheel);
           sWheel.setOrigin(50,50);
           sWheel.setRotation(b->GetAngle() * 57.2957795f);
           window.draw(sWheel);
@@ -484,6 +509,7 @@ int main(int argc, char** argv)
       window.draw(pause2);
     }
     #pragma endregion
+
   window.display();
   }
 
